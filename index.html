@@ -38,11 +38,13 @@
 
   /* HERO */
   .hero{padding:88px 0 72px;border-bottom:1px solid var(--line)}
+  .hero .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center}
   .hero .label{font-family:var(--mono);font-size:.78rem;color:var(--blue);margin:0 0 14px}
   h1{font-size:2.5rem;line-height:1.15;margin:0 0 20px;max-width:16ch;font-weight:700}
   .hero p.lede{font-size:1.15rem;color:var(--ink-soft);max-width:56ch;margin:0 0 32px}
   .hero-meta{display:flex;flex-wrap:wrap;gap:28px;font-family:var(--mono);font-size:.82rem;color:var(--steel);border-top:1px solid var(--line);padding-top:20px}
   .hero-actions{display:flex;gap:14px;margin-bottom:36px}
+  .hero-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line)}
   .btn{display:inline-block;padding:12px 22px;font-size:.92rem;font-weight:500;text-decoration:none;border:1px solid var(--ink);}
   .btn-primary{background:var(--ink);color:var(--paper)}
   .btn-ghost{color:var(--ink)}
@@ -70,12 +72,13 @@
   /* PROJECTS */
   .cat-intro{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;flex-wrap:wrap;gap:8px}
   .cat-intro p{margin:0;color:var(--steel);font-size:.9rem;max-width:40ch}
-  .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .card{border:1px solid var(--line);padding:22px;text-decoration:none;color:var(--ink);transition:border-color .15s}
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+  .card{border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:border-color .15s;overflow:hidden}
   .card:hover{border-color:var(--blue)}
-  .card .ptype{font-family:var(--mono);font-size:.72rem;color:var(--blue);margin:0 0 10px}
-  .card h3{font-size:1.1rem;margin:0 0 8px}
-  .card p{color:var(--ink-soft);font-size:.9rem;margin:0 0 16px}
+  .card-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--blue-dim);border-bottom:1px solid var(--line)}
+  .card-body{padding:14px 16px}
+  .card .ptype{font-family:var(--mono);font-size:.7rem;color:var(--blue);margin:0 0 6px}
+  .card h3{font-size:1rem;margin:0}
   .tags{display:flex;flex-wrap:wrap;gap:6px}
   .tag{font-family:var(--mono);font-size:.68rem;color:var(--steel);border:1px solid var(--line);padding:3px 8px}
   .cad-grid .card{border-style:dashed}
@@ -99,6 +102,8 @@
   @media (max-width:760px){
     .navlinks{display:none}
     h1{font-size:2rem}
+    .hero .wrap{grid-template-columns:1fr}
+    .hero-photo{max-width:220px}
     .about-grid,.contact-grid{grid-template-columns:1fr}
     .skills-grid{grid-template-columns:1fr}
     .projects-grid{grid-template-columns:1fr}
@@ -123,18 +128,21 @@
 
 <section class="hero" id="top">
   <div class="wrap">
-    <p class="label">CIVIL ENGINEERING GRADUATE — CONSTRUCTION &amp; PROJECT SUPPORT</p>
-    <h1>Hands-on construction experience, from planning to site execution.</h1>
-    <p class="lede">I support construction projects across estimating, documentation, and coordination — with direct onsite experience seeing plans through to execution. Currently AutoCAD/SketchUp-skilled and open to office-based, remote, and project-coordination roles.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#construction">View Projects</a>
-      <a class="btn btn-ghost" href="#resume">Download Resume</a>
+    <div>
+      <p class="label">CIVIL ENGINEERING GRADUATE — CONSTRUCTION &amp; PROJECT SUPPORT</p>
+      <h1>Hands-on construction experience, from planning to site execution.</h1>
+      <p class="lede">I support construction projects across estimating, documentation, and coordination — with direct onsite experience seeing plans through to execution. Currently AutoCAD/SketchUp-skilled and open to office-based, remote, and project-coordination roles.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#construction">View Projects</a>
+        <a class="btn btn-ghost" href="#resume">Download Resume</a>
+      </div>
+      <div class="hero-meta">
+        <span>BASED IN — PHILIPPINES</span>
+        <span>FOCUS — ESTIMATING / COORDINATION / DOCUMENTATION</span>
+        <span>TOOLS — AUTOCAD, SKETCHUP</span>
+      </div>
     </div>
-    <div class="hero-meta">
-      <span>BASED IN — PHILIPPINES</span>
-      <span>FOCUS — ESTIMATING / COORDINATION / DOCUMENTATION</span>
-      <span>TOOLS — AUTOCAD, SKETCHUP</span>
-    </div>
+    <img class="hero-photo tick" src="assets/profile.jpg" alt="Portrait of Juan Dela Cruz">
   </div>
 </section>
 
@@ -170,17 +178,25 @@
       <p>Projects where I supported planning, estimating, coordination, and onsite execution.</p>
     </div>
     <div class="projects-grid">
-      <a class="card tick" href="project-template.html">
-        <p class="ptype">RESIDENTIAL — BUILT</p>
-        <h3>[Project Name]</h3>
-        <p>One-line summary of your role and the stage(s) you were involved in — placeholder until project details are added.</p>
-        <div class="tags"><span class="tag">Estimating</span><span class="tag">Site Coordination</span><span class="tag">2023</span></div>
+      <a class="card tick" href="project-pm-01.html">
+        <img class="card-img" src="assets/pm-01-thumb.jpg" alt="[Project Name 1] thumbnail">
+        <div class="card-body"><p class="ptype">[PROJECT TYPE — YEAR]</p><h3>[Project Name 1]</h3></div>
       </a>
-      <a class="card tick" href="project-template.html">
-        <p class="ptype">COMMERCIAL — ONGOING</p>
-        <h3>[Project Name]</h3>
-        <p>One-line summary of your role and the stage(s) you were involved in — placeholder until project details are added.</p>
-        <div class="tags"><span class="tag">Documentation</span><span class="tag">Procurement</span><span class="tag">2024</span></div>
+      <a class="card tick" href="project-pm-02.html">
+        <img class="card-img" src="assets/pm-02-thumb.jpg" alt="[Project Name 2] thumbnail">
+        <div class="card-body"><p class="ptype">[PROJECT TYPE — YEAR]</p><h3>[Project Name 2]</h3></div>
+      </a>
+      <a class="card tick" href="project-pm-03.html">
+        <img class="card-img" src="assets/pm-03-thumb.jpg" alt="[Project Name 3] thumbnail">
+        <div class="card-body"><p class="ptype">[PROJECT TYPE — YEAR]</p><h3>[Project Name 3]</h3></div>
+      </a>
+      <a class="card tick" href="project-pm-04.html">
+        <img class="card-img" src="assets/pm-04-thumb.jpg" alt="[Project Name 4] thumbnail">
+        <div class="card-body"><p class="ptype">[PROJECT TYPE — YEAR]</p><h3>[Project Name 4]</h3></div>
+      </a>
+      <a class="card tick" href="project-pm-05.html">
+        <img class="card-img" src="assets/pm-05-thumb.jpg" alt="[Project Name 5] thumbnail">
+        <div class="card-body"><p class="ptype">[PROJECT TYPE — YEAR]</p><h3>[Project Name 5]</h3></div>
       </a>
     </div>
   </div>
@@ -194,17 +210,69 @@
       <p>Drawings and models produced in AutoCAD and SketchUp, shown separately from field/coordination work.</p>
     </div>
     <div class="projects-grid cad-grid">
-      <a class="card tick" href="project-template.html">
-        <p class="ptype">AUTOCAD — 2D DRAFTING</p>
-        <h3>[Drawing Set Name]</h3>
-        <p>Floor plan / construction drawing set — placeholder description.</p>
-        <div class="tags"><span class="tag">AutoCAD</span><span class="tag">Floor Plans</span></div>
+      <a class="card tick" href="project-cad-01.html">
+        <img class="card-img" src="assets/cad-01-thumb.jpg" alt="[Drawing/Model 1] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 1]</h3></div>
       </a>
-      <a class="card tick" href="project-template.html">
-        <p class="ptype">SKETCHUP — 3D MODEL</p>
-        <h3>[Model Name]</h3>
-        <p>Visualization / presentation model — placeholder description.</p>
-        <div class="tags"><span class="tag">SketchUp</span><span class="tag">Visualization</span></div>
+      <a class="card tick" href="project-cad-02.html">
+        <img class="card-img" src="assets/cad-02-thumb.jpg" alt="[Drawing/Model 2] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 2]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-03.html">
+        <img class="card-img" src="assets/cad-03-thumb.jpg" alt="[Drawing/Model 3] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 3]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-04.html">
+        <img class="card-img" src="assets/cad-04-thumb.jpg" alt="[Drawing/Model 4] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 4]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-05.html">
+        <img class="card-img" src="assets/cad-05-thumb.jpg" alt="[Drawing/Model 5] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 5]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-06.html">
+        <img class="card-img" src="assets/cad-06-thumb.jpg" alt="[Drawing/Model 6] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 6]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-07.html">
+        <img class="card-img" src="assets/cad-07-thumb.jpg" alt="[Drawing/Model 7] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 7]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-08.html">
+        <img class="card-img" src="assets/cad-08-thumb.jpg" alt="[Drawing/Model 8] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 8]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-09.html">
+        <img class="card-img" src="assets/cad-09-thumb.jpg" alt="[Drawing/Model 9] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 9]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-10.html">
+        <img class="card-img" src="assets/cad-10-thumb.jpg" alt="[Drawing/Model 10] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 10]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-11.html">
+        <img class="card-img" src="assets/cad-11-thumb.jpg" alt="[Drawing/Model 11] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 11]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-12.html">
+        <img class="card-img" src="assets/cad-12-thumb.jpg" alt="[Drawing/Model 12] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 12]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-13.html">
+        <img class="card-img" src="assets/cad-13-thumb.jpg" alt="[Drawing/Model 13] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 13]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-14.html">
+        <img class="card-img" src="assets/cad-14-thumb.jpg" alt="[Drawing/Model 14] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 14]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-15.html">
+        <img class="card-img" src="assets/cad-15-thumb.jpg" alt="[Drawing/Model 15] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 15]</h3></div>
+      </a>
+      <a class="card tick" href="project-cad-16.html">
+        <img class="card-img" src="assets/cad-16-thumb.jpg" alt="[Drawing/Model 16] thumbnail">
+        <div class="card-body"><p class="ptype">[AUTOCAD or SKETCHUP]</p><h3>[Drawing/Model 16]</h3></div>
       </a>
     </div>
   </div>
